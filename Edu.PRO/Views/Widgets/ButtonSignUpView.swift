@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ButtonSignUpView: View {
-    @State var action: () -> Void
+    @State var action: () -> Void = {}
     
     var body: some View {
         Button(action: action, label: {
@@ -19,6 +19,7 @@ struct ButtonSignUpView: View {
                     Spacer()
                     
                     Text("Cadastre-se")
+                        .foregroundColor(Color.white)
                     Image("Icon_Button").padding(.trailing, 5)
                 }
             }
@@ -28,6 +29,6 @@ struct ButtonSignUpView: View {
 
 #Preview {
     ButtonSignUpView(action: {
-        print("Pressed!")
+        print("Pressed!232")
     })
 }

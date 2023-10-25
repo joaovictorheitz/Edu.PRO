@@ -17,41 +17,47 @@ struct SignUpScreenView: View {
     }
     
     var body: some View {
-        ZStack {
-            VStack {
-                
-                HStack {
-                    Image("Logo").padding(70)
-                }
-                
-                HStack {
+        NavigationStack {
+            ZStack {
+                VStack {
+                    HStack {
+                        Image("Logo").padding(50)
+                    }
                     
-                    GettingStartedTextView(title: "Inicie agora!", subTitle: "Crie uma conta para continuar com seus cursos.")
+                    HStack {
+                        GettingStartedTextView(title: "Inicie agora!", subTitle: "Crie uma conta para continuar com seus cursos.")
+                        
+                        Spacer()
+                    }.padding(20)
+                    
+                    VStack (spacing: 25) {
+                        InputView(label: "E-mail", value: $email, safety: false)
+                        InputView(label: "Senha", value: $password, safety: true)
+                    }
+                    
+                    HStack {
+                        CustomCheckBoxView(text: "Aceito os Termos e Condições")
+                        
+                        Spacer()
+                    } .padding(.top) .padding(.leading, 25) .padding(.bottom)
+                    
+                    HStack {
+                        ButtonSignUpView()
+                    }
+                    
+                    HStack {
+                        OrContinueWithView()
+                    }.padding(.top)
+                    
+                    HStack {
+                        SingUpNaviLinkView()
+                    }.padding(.top)
                     
                     Spacer()
-                }.padding(20)
-                
-                VStack (spacing: 25) {
-                    InputView(label: "E-mail", value: $email, safety: false)
-                    InputView(label: "Senha", value: $password, safety: true)
                 }
-                
-                HStack {
-                    CustomCheckBoxView(text: "Aceito os Termos e Condições")
-                    
-                    Spacer()
-                } .padding(.top) .padding(.leading, 25) .padding(.bottom)
-                
-                HStack {
-                    ButtonSignUpView(action: {
-                        print("Pressed!")
-                    })
-                }
-                
-                Spacer()
             }
+            .background(Color.background)
         }
-        .background(Color.background)
     }
 }
 

@@ -11,7 +11,7 @@ import SwiftUI
 struct Edu_PROApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SignUpScreenView()
         }
     }
 }
